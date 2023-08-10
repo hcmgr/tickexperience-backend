@@ -1,4 +1,4 @@
-package com.deco.tickexperience.service.security;
+package com.deco.tickexperience.service;
 
 import com.deco.tickexperience.model.entity.User;
 import com.deco.tickexperience.repository.UserRepository;
@@ -41,12 +41,15 @@ public class AuthService {
         User user = new User();
         user.setUsername(username);
         user.setPassword(encodePassword(password));
+
         userRepository.save(user);
     }
 
+    public boolean check(final String token) {
+        return TokenService.checkToken(token);
+    }
 
     private String encodePassword(final String password) {
-        // TODO
         return password;
     }
 }

@@ -1,13 +1,17 @@
 package com.deco.tickexperience.controller;
 
-import com.deco.tickexperience.service.security.AuthService;
+import com.deco.tickexperience.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
+/**
+ * AuthenticationController
+ * handles all authentication related requests
+ * does not require authentication to use
+ */
 @RestController
 @RequestMapping("${apiPrefix}/auth")
 @RequiredArgsConstructor
@@ -32,5 +36,15 @@ public class AuthController {
     @PostMapping("/logout")
     public void logout(@RequestParam String token) {
         authService.logout(token);
+    }
+
+    /**
+     * Check if token is still valid
+     * @param token auth token
+     * @return true if token is valid
+     */
+    @PostMapping("/check")
+    public boolean check(@RequestParam String token) {
+        return authService.check(token);
     }
 }

@@ -1,4 +1,4 @@
-package com.deco.tickexperience.service.security;
+package com.deco.tickexperience.service;
 
 import com.deco.tickexperience.model.entity.User;
 
@@ -23,5 +23,9 @@ public class TokenService {
 
     public static void removeToken(String token) {
         tokens.remove(token);
+    }
+
+    public static boolean checkToken(final String token) {
+        return tokens.containsKey(token);
     }
 }

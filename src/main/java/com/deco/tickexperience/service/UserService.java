@@ -2,7 +2,6 @@ package com.deco.tickexperience.service;
 
 import com.deco.tickexperience.model.entity.Ticket;
 import com.deco.tickexperience.repository.UserRepository;
-import com.deco.tickexperience.service.security.TokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
