@@ -26,4 +26,8 @@ public class Session {
     @OneToMany(mappedBy ="session", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Event> events;
+
+    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Ticket> tickets;
 }

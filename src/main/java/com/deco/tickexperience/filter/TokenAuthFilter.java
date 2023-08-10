@@ -1,7 +1,6 @@
 package com.deco.tickexperience.filter;
 
-import com.deco.tickexperience.model.entity.User;
-import com.deco.tickexperience.service.security.TokenService;
+import com.deco.tickexperience.service.TokenService;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -12,10 +11,14 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+/**
+ * Filter to validate token
+ * for requests that require
+ * an authenticated user
+ */
 @WebFilter("/api/authed/*")
 @RequiredArgsConstructor
 @Slf4j
@@ -39,14 +42,13 @@ public class TokenAuthFilter implements Filter {
             return;
         }
 
-        // Validate active token
-        if (TokenService.getUser(token) != null) {
-            chain.doFilter(request, response);
-            log.info("Token validated");
+        if (TokenService.getUser(token) == null) {
+            log.warn("Invalid token: {}", token);
+            res.setStatus(401);
             return;
         }
 
-        log.warn("Invalid token: {}", token);
-        res.setStatus(401);
+        log.info("Token validated");
+        chain.doFilter(request, response);
     }
 }
