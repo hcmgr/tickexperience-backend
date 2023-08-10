@@ -13,4 +13,9 @@
         <sqlFile path = "create_user.sql" splitStatements="true" stripComments="true" endDelimiter=";" relativeToChangelogFile="true" />
     </changeSet>
 
+    <changeSet id="create_ticket" author="dom">
+        <sqlFile path = "create_ticket.sql" splitStatements="true" stripComments="true" endDelimiter=";" relativeToChangelogFile="true" />
+    </changeSet>
+
+
 </databaseChangeLog>
