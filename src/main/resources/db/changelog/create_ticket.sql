@@ -1,8 +1,0 @@
-CREATE TABLE Ticket (
-    Id INT NOT NULL AUTO_INCREMENT,
-    SessionId INT NOT NULL,
-    UserId INT NOT NULL,
-    PRIMARY KEY (Id),
-    FOREIGN KEY (SessionId) REFERENCES Session(Id),
-    FOREIGN KEY (UserId) REFERENCES User(Id)
-)

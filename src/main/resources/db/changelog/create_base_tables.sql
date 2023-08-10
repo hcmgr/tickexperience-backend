@@ -24,3 +24,26 @@ CREATE TABLE Event (
     FOREIGN KEY (SessionId) REFERENCES Session(Id),
     FOREIGN KEY (SportId) REFERENCES Sport(Id)
 );
+
+
+CREATE TABLE User (
+  Id INT NOT NULL AUTO_INCREMENT,
+  Username VARCHAR(255) NOT NULL,
+  Password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (Id),
+  UNIQUE KEY (Username)
+);
+
+CREATE TABLE Ticket (
+    Id INT NOT NULL AUTO_INCREMENT,
+    SeatNumber INT NOT NULL,
+    Venue VARCHAR(255) NOT NULL,
+    SessionId INT NOT NULL,
+    UserId INT,
+    PRIMARY KEY (Id),
+    FOREIGN KEY (SessionId) REFERENCES Session(Id),
+    FOREIGN KEY (UserId) REFERENCES User(Id),
+    UNIQUE KEY (SeatNumber, Venue)
+);
+
+
