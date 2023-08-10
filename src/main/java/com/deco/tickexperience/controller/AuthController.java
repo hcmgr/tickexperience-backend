@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.bind.ValidationException;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("${apiPrefix}/auth")
 @RequiredArgsConstructor
 public class AuthController {
 
