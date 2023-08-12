@@ -1,5 +1,6 @@
 package com.deco.tickexperience.service;
 
+import com.deco.tickexperience.model.dto.TokenDTO;
 import com.deco.tickexperience.model.entity.User;
 import com.deco.tickexperience.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,7 @@ public class AuthService {
     final private UserRepository userRepository;
     final private TokenService tokenService;
 
-    public String login(final String username, final String password) {
+    public  TokenDTO login(final String username, final String password) {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found"));
 
@@ -23,7 +24,7 @@ public class AuthService {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect password");
         }
 
-        return tokenService.generateToken(user);
+        return new TokenDTO(tokenService.generateToken(user));
     }
 
     /**

@@ -24,6 +24,8 @@ import java.io.IOException;
 @Slf4j
 public class TokenAuthFilter implements Filter {
 
+    private final TokenService tokenService;
+
 
     @Override
     public void doFilter(
@@ -42,7 +44,7 @@ public class TokenAuthFilter implements Filter {
             return;
         }
 
-        if (TokenService.getUser(token) == null) {
+        if (tokenService.getUser(token) == null) {
             log.warn("Invalid token: {}", token);
             res.setStatus(401);
             return;

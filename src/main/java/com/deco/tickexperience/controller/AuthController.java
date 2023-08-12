@@ -1,5 +1,6 @@
 package com.deco.tickexperience.controller;
 
+import com.deco.tickexperience.model.dto.TokenDTO;
 import com.deco.tickexperience.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,7 @@ public class AuthController {
      * @return String token for api usage
      */
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
+    public TokenDTO login(@RequestParam String username, @RequestParam String password) {
         return authService.login(username, password);
     }
 
