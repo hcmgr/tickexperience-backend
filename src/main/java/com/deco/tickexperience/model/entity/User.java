@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,4 +25,12 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Ticket> tickets;
+
+    public void addTicket(Ticket ticket) {
+        ticket.setUser(this);
+        if (this.getTickets() == null) {
+            this.setTickets(new ArrayList<Ticket>());
+        }
+        this.getTickets().add(ticket);
+    }
 }

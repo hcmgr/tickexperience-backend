@@ -23,11 +23,28 @@ public class Session {
     private LocalDateTime endTime;
     private String location;
 
-    @OneToMany(mappedBy ="session", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy ="event", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Event> events;
 
-    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Ticket> tickets;
+
+
+    public void addEvent(Event event) {
+        event.setSession(this);
+        if (this.getEvents() == null) {
+            this.setEvents(new java.util.ArrayList<Event>());
+        }
+        this.getEvents().add(event);
+    }
+
+    public void addTicket(Ticket ticket) {
+        ticket.setSession(this);
+        if (this.getTickets() == null) {
+            this.setTickets(new java.util.ArrayList<Ticket>());
+        }
+        this.getTickets().add(ticket);
+    }
 }

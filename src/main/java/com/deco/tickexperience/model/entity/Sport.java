@@ -21,4 +21,12 @@ public class Sport {
     @OneToMany(mappedBy = "sport")
     @JsonIgnore
     private List<Event> events;
+
+    public void addEvent(Event event) {
+        event.setSport(this);
+        if (this.getEvents() == null) {
+            this.setEvents(new java.util.ArrayList<Event>());
+        }
+        this.getEvents().add(event);
+    }
 }
