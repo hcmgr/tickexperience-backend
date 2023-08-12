@@ -13,6 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class AuthService {
 
     final private UserRepository userRepository;
+    final private TokenService tokenService;
 
     public String login(final String username, final String password) {
         User user = userRepository.findByUsername(username)
@@ -22,7 +23,7 @@ public class AuthService {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect password");
         }
 
-        return TokenService.generateToken(user);
+        return tokenService.generateToken(user);
     }
 
     /**
@@ -30,7 +31,7 @@ public class AuthService {
      * @param token token issued on login
      */
     public void logout(final String token) {
-        TokenService.removeToken(token);
+        tokenService.removeToken(token);
     }
 
     public void register(final String username, final String password) {
@@ -46,7 +47,7 @@ public class AuthService {
     }
 
     public boolean check(final String token) {
-        return TokenService.checkToken(token);
+        return tokenService.checkToken(token);
     }
 
     private String encodePassword(final String password) {

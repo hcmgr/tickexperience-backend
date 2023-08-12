@@ -14,9 +14,10 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final TokenService tokenService;
 
     public List<Ticket> getTicketsForUser(final String token) {
-       String username = TokenService.getUser(token).getUsername();
+       String username = tokenService.getUser(token).getUsername();
 
        return userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found " + username))
