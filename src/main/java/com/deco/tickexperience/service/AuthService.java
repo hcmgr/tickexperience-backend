@@ -1,5 +1,6 @@
 package com.deco.tickexperience.service;
 
+import com.deco.tickexperience.model.dto.LoginDTO;
 import com.deco.tickexperience.model.dto.TokenDTO;
 import com.deco.tickexperience.model.entity.User;
 import com.deco.tickexperience.repository.UserRepository;
@@ -15,6 +16,10 @@ public class AuthService {
 
     final private UserRepository userRepository;
     final private TokenService tokenService;
+
+    public TokenDTO login(final LoginDTO loginDTO) {
+        return login(loginDTO.getUsername(), loginDTO.getPassword());
+    }
 
     public  TokenDTO login(final String username, final String password) {
         User user = userRepository.findByUsername(username)
