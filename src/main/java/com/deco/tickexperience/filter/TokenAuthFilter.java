@@ -36,6 +36,12 @@ public class TokenAuthFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
+        if (req.getMethod().equals("OPTIONS")) {
+            // dont need to auth cors pre flight
+            chain.doFilter(request, response);
+            return;
+        }
+
         String token = req.getHeader("token");
 
         if (token == null) {
