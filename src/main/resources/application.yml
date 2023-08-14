@@ -1,0 +1,19 @@
+spring:
+    datasource:
+        url: jdbc:h2:mem:main;NON_KEYWORDS=USER;
+        password: password
+        username: sa
+        driverClassName: org.h2.Driver
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        show-sql: false
+        hibernate:
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    liquibase:
+        change-log: classpath:db/db.changelog-master.xml
+
+
+# Application Constants
+apiPrefix: /api
+apiAuthedPrefix: /api/authed
