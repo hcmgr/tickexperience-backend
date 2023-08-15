@@ -5,8 +5,13 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
                             http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet id="create_base_tables" author="dom">
-        <sqlFile path = "create_base_tables.sql" splitStatements="true" stripComments="true" endDelimiter=";" relativeToChangelogFile="true" />
+    <changeSet id="base_tables" author="dom">
+        <sqlFile path = "h2_setup.sql" splitStatements="true" stripComments="true" endDelimiter=";" relativeToChangelogFile="true" />
     </changeSet>
+
+    <changeSet id="dummy_data" author="dom">
+        <sqlFile path = "dummy_data.sql" splitStatements="true" stripComments="true" endDelimiter=";" relativeToChangelogFile="true" />
+    </changeSet>
+
 
 </databaseChangeLog>
