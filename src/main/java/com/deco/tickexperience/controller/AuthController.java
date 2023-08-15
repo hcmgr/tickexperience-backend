@@ -5,6 +5,7 @@ import com.deco.tickexperience.model.dto.TokenDTO;
 import com.deco.tickexperience.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,8 +38,8 @@ public class AuthController {
         authService.register(username, password);
     }
 
-    @PostMapping("/logout")
-    public void logout(@RequestBody String token) {
+    @PostMapping("/logout/{token}")
+    public void logout(@PathVariable String token) {
         authService.logout(token);
     }
 
@@ -47,8 +48,8 @@ public class AuthController {
      * @param token auth token
      * @return true if token is valid
      */
-    @GetMapping("/check")
-    public boolean check(@RequestParam String token) {
+    @GetMapping("/check/{token}")
+    public boolean check(@PathVariable String token) {
         return authService.check(token);
     }
 }
