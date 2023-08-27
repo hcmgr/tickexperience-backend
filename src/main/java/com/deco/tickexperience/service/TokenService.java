@@ -3,18 +3,23 @@ package com.deco.tickexperience.service;
 import com.deco.tickexperience.model.entity.User;
 import org.springframework.stereotype.Service;
 
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
+import java.util.UUID;
 
 @Service
 public class TokenService {
 
     private final static Map<String, User> tokens = new HashMap<>();
+    private final static SecureRandom random = new SecureRandom();
 
     public String generateToken(User user) {
-        // FIXME need to do this properly
-        String token = user.getUsername();
+        int TOKEN_LEN = 16;
+        byte[] randomBytes = new byte[TOKEN_LEN];
+        random.nextBytes(randomBytes);
+
+        String token = UUID.nameUUIDFromBytes(randomBytes).toString();
         tokens.put(token, user);
         return token;
     }
