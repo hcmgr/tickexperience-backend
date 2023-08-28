@@ -4,14 +4,26 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.security.SecureRandom;
+import java.util.UUID;
 
 public class Encryption {
     public static String generateSalt() {
+        byte[] salt = generateBytes(16);
+        return Base64.getEncoder().encodeToString(salt);
+    }
+
+    public static String generateToken() {
+        // TODO: maybe want variable length tokens?
+        byte[] randomBytes = generateBytes(16);
+        return UUID.nameUUIDFromBytes(randomBytes).toString();
+    }
+
+    private static byte[] generateBytes(int len) {
         // TODO: perhaps insecure to have new instance everytime
         SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-        return Base64.getEncoder().encodeToString(salt);
+        byte[] randomBytes = new byte[len];
+        random.nextBytes(randomBytes);
+        return randomBytes;
     }
 
     public static String hashPasswordWithSalt(String password, String salt) {
