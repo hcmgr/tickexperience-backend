@@ -17,6 +17,7 @@ public class AuthService {
 
     final private UserRepository userRepository;
     final private TokenService tokenService;
+    final private EncryptionService encryptionService;
 
     public TokenDTO login(final LoginDTO loginDTO) {
         return login(loginDTO.getUsername(), loginDTO.getPassword());
@@ -47,7 +48,7 @@ public class AuthService {
         }
 
         User user = new User();
-        String salt = Encryption.generateSalt();
+        String salt = encryptionService.generateSalt();
         user.setUsername(username);
         user.setUserSalt(salt);
         user.setPassword(encodePassword(password, salt));
@@ -60,6 +61,6 @@ public class AuthService {
     }
 
     private String encodePassword(final String password, final String salt) {
-        return Encryption.hashPasswordWithSalt(password, salt);
+        return encryptionService.hashPasswordWithSalt(password, salt);
     }
 }
