@@ -1,20 +1,19 @@
 package com.deco.tickexperience.service;
-
 import com.deco.tickexperience.model.entity.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 @Service
+@RequiredArgsConstructor
 public class TokenService {
 
     private final static Map<String, User> tokens = new HashMap<>();
+    private final EncryptionService encryptionService;
 
     public String generateToken(User user) {
-        // FIXME need to do this properly
-        String token = user.getUsername();
+        String token = encryptionService.generateToken();
         tokens.put(token, user);
         return token;
     }
