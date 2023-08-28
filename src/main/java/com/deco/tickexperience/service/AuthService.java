@@ -4,6 +4,7 @@ import com.deco.tickexperience.model.dto.LoginDTO;
 import com.deco.tickexperience.model.dto.TokenDTO;
 import com.deco.tickexperience.model.entity.User;
 import com.deco.tickexperience.repository.UserRepository;
+import com.deco.tickexperience.utils.Encryption;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class AuthService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found"));
 
-        if (!user.getPassword().equals(encodePassword(password))) {
+        if (!user.getPassword().equals(encodePassword(password, user.getUserSalt()))) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect password");
         }
 
@@ -46,8 +47,10 @@ public class AuthService {
         }
 
         User user = new User();
+        String salt = Encryption.generateSalt();
         user.setUsername(username);
-        user.setPassword(encodePassword(password));
+        user.setUserSalt(salt);
+        user.setPassword(encodePassword(password, salt));
 
         userRepository.save(user);
     }
@@ -56,7 +59,7 @@ public class AuthService {
         return tokenService.checkToken(token);
     }
 
-    private String encodePassword(final String password) {
-        return password;
+    private String encodePassword(final String password, final String salt) {
+        return Encryption.hashPasswordWithSalt(password, salt);
     }
 }

@@ -21,6 +21,7 @@ public class User {
     private Long id;
     private String username;
     private String password;
+    private String userSalt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
