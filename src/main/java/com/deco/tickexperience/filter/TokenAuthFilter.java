@@ -45,13 +45,12 @@ public class TokenAuthFilter implements Filter {
         String token = req.getHeader("token");
 
         if (token == null) {
-            log.warn("Missing token");
+            log.warn("Request missing token");
             res.setStatus(400);
             return;
         }
 
-        if (tokenService.getUser(token) == null) {
-            log.warn("Invalid token: {}", token);
+        if (!tokenService.checkToken(token)) {
             res.setStatus(401);
             return;
         }

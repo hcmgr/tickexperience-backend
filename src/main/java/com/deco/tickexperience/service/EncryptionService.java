@@ -1,4 +1,5 @@
 package com.deco.tickexperience.service;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.security.MessageDigest;
@@ -12,6 +13,9 @@ public class EncryptionService {
 
     private final SecureRandom random = new SecureRandom();
     private final MessageDigest messageDigest;
+
+    @Value("${token.length}")
+    private int tokenLength;
 
     public EncryptionService() {
         try {
@@ -27,7 +31,7 @@ public class EncryptionService {
     }
 
     public String generateToken() {
-        byte[] randomBytes = generateBytes(16);
+        byte[] randomBytes = generateBytes(tokenLength);
         return UUID.nameUUIDFromBytes(randomBytes).toString();
     }
 

@@ -20,7 +20,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
+
+    @JsonIgnore
     private String password;
+
+    @JsonIgnore
     private String userSalt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
