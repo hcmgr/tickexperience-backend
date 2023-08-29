@@ -4,7 +4,6 @@ import com.deco.tickexperience.model.dto.LoginDTO;
 import com.deco.tickexperience.model.dto.TokenDTO;
 import com.deco.tickexperience.model.entity.User;
 import com.deco.tickexperience.repository.UserRepository;
-import com.deco.tickexperience.utils.Encryption;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -31,7 +30,7 @@ public class AuthService {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect password");
         }
 
-        return new TokenDTO(tokenService.generateToken(user));
+        return new TokenDTO(tokenService.generateToken(user.getId()));
     }
 
     /**
