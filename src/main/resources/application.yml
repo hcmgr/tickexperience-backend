@@ -19,5 +19,5 @@ apiPrefix: /api
 apiAuthedPrefix: /api/authed
 
 token:
-    timeout: 60  # seconds, 15 minutes
+    timeout: 900  # seconds, 15 minutes
     length: 16 # bytes
