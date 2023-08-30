@@ -34,7 +34,7 @@ public class User {
     public void addTicket(Ticket ticket) {
         ticket.setUser(this);
         if (this.getTickets() == null) {
-            this.setTickets(new ArrayList<Ticket>());
+            this.setTickets(new ArrayList<>());
         }
         this.getTickets().add(ticket);
     }
