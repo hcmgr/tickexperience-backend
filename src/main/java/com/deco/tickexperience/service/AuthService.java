@@ -41,39 +41,23 @@ public class AuthService {
     public void logout(final String token) {
         tokenService.removeToken(token);
     }
+    public void register(final RegisterDTO registerDTO) {
 
-    public TokenDTO register(RegisterDTO registerDTO) {
-        return register(registerDTO.getUsername(),
-                        registerDTO.getPassword(),
-                        registerDTO.getName(),
-                        registerDTO.getEmail(),
-                        registerDTO.getMobile());
-    }
-
-    public TokenDTO register(final String username,
-                             final String password,
-                             final String name,
-                             final String email,
-                             final String mobile) {
-
-        if (userRepository.findByUsername(username).isPresent()) {
+        if (userRepository.findByUsername(registerDTO.getUsername()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User already exists");
         }
 
         User user = new User();
         String salt = encryptionService.generateSalt();
 
-        user.setUsername(username);
+        user.setUsername(registerDTO.getUsername());
         user.setUserSalt(salt);
-        user.setPasswordHash(encodePassword(password, salt));
-        user.setName(name);
-        user.setEmail(email);
-        user.setMobile(mobile);
+        user.setPasswordHash(encodePassword(registerDTO.getPassword(), salt));
+        user.setName(registerDTO.getName());
+        user.setEmail(registerDTO.getEmail());
+        user.setMobile(registerDTO.getMobile());
 
         userRepository.save(user);
-
-        // NOTE: newly registered user needs token too
-        return new TokenDTO(tokenService.generateToken(user.getId()));
     }
 
     public boolean check(final String token) {

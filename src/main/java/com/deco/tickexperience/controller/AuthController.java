@@ -35,8 +35,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public TokenDTO register(@RequestBody final RegisterDTO registerDTO) {
-        return authService.register(registerDTO);}
+    public void register(@RequestBody final RegisterDTO registerDTO) { authService.register(registerDTO); }
 
     @PostMapping("/logout/{token}")
     public void logout(@PathVariable String token) {
