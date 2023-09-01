@@ -1,6 +1,7 @@
 package com.deco.tickexperience.service;
 
 import com.deco.tickexperience.model.dto.LoginDTO;
+import com.deco.tickexperience.model.dto.RegisterDTO;
 import com.deco.tickexperience.model.dto.TokenDTO;
 import com.deco.tickexperience.model.entity.User;
 import com.deco.tickexperience.repository.UserRepository;
@@ -26,7 +27,7 @@ public class AuthService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found"));
 
-        if (!user.getPassword().equals(encodePassword(password, user.getUserSalt()))) {
+        if (!user.getPasswordHash().equals(encodePassword(password, user.getUserSalt()))) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect password");
         }
 
@@ -41,18 +42,38 @@ public class AuthService {
         tokenService.removeToken(token);
     }
 
-    public void register(final String username, final String password) {
+    public TokenDTO register(RegisterDTO registerDTO) {
+        return register(registerDTO.getUsername(),
+                        registerDTO.getPassword(),
+                        registerDTO.getName(),
+                        registerDTO.getEmail(),
+                        registerDTO.getMobile());
+    }
+
+    public TokenDTO register(final String username,
+                             final String password,
+                             final String name,
+                             final String email,
+                             final String mobile) {
+
         if (userRepository.findByUsername(username).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User already exists");
         }
 
         User user = new User();
         String salt = encryptionService.generateSalt();
+
         user.setUsername(username);
         user.setUserSalt(salt);
-        user.setPassword(encodePassword(password, salt));
+        user.setPasswordHash(encodePassword(password, salt));
+        user.setName(name);
+        user.setEmail(email);
+        user.setMobile(mobile);
 
         userRepository.save(user);
+
+        // NOTE: newly registered user needs token too
+        return new TokenDTO(tokenService.generateToken(user.getId()));
     }
 
     public boolean check(final String token) {
