@@ -17,17 +17,14 @@ import lombok.Data;
 @Entity
 @Data
 public class Ticket {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Integer seatNumber;
-    private String venue;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="SessionId")
-    private Session session;
+    @JoinColumn(name="EventId")
+    private Event event;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="UserId")
