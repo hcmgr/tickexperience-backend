@@ -25,7 +25,6 @@ public class UserService {
                 .getTickets();
     }
 
-    // NOTE: simply returning 'User' will serialise all fields we need
     public User getUserDetails(final String token) {
         String username = tokenService.getUser(token).getUsername();
         return userRepository.findByUsername(username)

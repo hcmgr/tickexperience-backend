@@ -26,7 +26,8 @@ public class User {
     private String name;
     private String email;
     private String mobile;
-    // NOTE: no JsonIgnore here IS INTENTIONAL (ask Rack)
+
+    @JsonIgnore
     private String passwordHash;
 
     @JsonIgnore
