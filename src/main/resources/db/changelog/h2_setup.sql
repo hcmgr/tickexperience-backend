@@ -27,7 +27,7 @@ CREATE TABLE User (
 
 CREATE TABLE Ticket (
     Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    UserId INT NOT NULL,
+    UserId INT,
     EventId INT NOT NULL,
     SeatNumber INT NOT NULL,
     FOREIGN KEY (UserId) REFERENCES User(Id),

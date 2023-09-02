@@ -1,10 +1,10 @@
 package com.deco.tickexperience.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -14,4 +14,8 @@ public class Venue {
     private Long id;
     private String name;
     private String location;
+
+    @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Event> events;
 }
