@@ -1,6 +1,7 @@
 package com.deco.tickexperience.controller;
 
 import com.deco.tickexperience.model.dto.LoginDTO;
+import com.deco.tickexperience.model.dto.RegisterDTO;
 import com.deco.tickexperience.model.dto.TokenDTO;
 import com.deco.tickexperience.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -34,8 +35,8 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public void register(@RequestParam String username, @RequestParam String password) {
-        authService.register(username, password);
+    public void register(@RequestBody final RegisterDTO registerDTO) {
+        authService.register(registerDTO);
     }
 
     @PostMapping("/logout/{token}")
@@ -53,7 +54,3 @@ public class AuthController {
         return authService.check(token);
     }
 }
-
-
-
-

@@ -1,6 +1,7 @@
 package com.deco.tickexperience.service;
 
 import com.deco.tickexperience.model.dto.LoginDTO;
+import com.deco.tickexperience.model.dto.RegisterDTO;
 import com.deco.tickexperience.model.dto.TokenDTO;
 import com.deco.tickexperience.model.entity.User;
 import com.deco.tickexperience.repository.UserRepository;
@@ -26,7 +27,7 @@ public class AuthService {
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found"));
 
-        if (!user.getPassword().equals(encodePassword(password, user.getUserSalt()))) {
+        if (!user.getPasswordHash().equals(encodePassword(password, user.getUserSalt()))) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Incorrect password");
         }
 
@@ -40,17 +41,21 @@ public class AuthService {
     public void logout(final String token) {
         tokenService.removeToken(token);
     }
+    public void register(final RegisterDTO registerDTO) {
 
-    public void register(final String username, final String password) {
-        if (userRepository.findByUsername(username).isPresent()) {
+        if (userRepository.findByUsername(registerDTO.getUsername()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User already exists");
         }
 
         User user = new User();
         String salt = encryptionService.generateSalt();
-        user.setUsername(username);
+
+        user.setUsername(registerDTO.getUsername());
         user.setUserSalt(salt);
-        user.setPassword(encodePassword(password, salt));
+        user.setPasswordHash(encodePassword(registerDTO.getPassword(), salt));
+        user.setName(registerDTO.getName());
+        user.setEmail(registerDTO.getEmail());
+        user.setMobile(registerDTO.getMobile());
 
         userRepository.save(user);
     }

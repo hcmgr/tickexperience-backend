@@ -1,6 +1,7 @@
 package com.deco.tickexperience.service;
 
 import com.deco.tickexperience.model.entity.Ticket;
+import com.deco.tickexperience.model.entity.User;
 import com.deco.tickexperience.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,5 +23,11 @@ public class UserService {
        return userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found " + username))
                 .getTickets();
+    }
+
+    public User getUserDetails(final String token) {
+        String username = tokenService.getUser(token).getUsername();
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found " + username));
     }
 }
