@@ -35,17 +35,17 @@ public class UserService {
     }
 
     public List<MyTicketDTO> getMyTickets(final String token) {
-        return dummyData(); // TODO remove dummy data stuff
-//        String username = tokenService.getUser(token).getUsername();
-//
-//        return userRepository.findByUsername(username)
-//                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found " + username))
-//                .getTickets()
-//                .stream()
-//                .map(this::createMyTicketDTO)
-//                .collect(Collectors.toList());
+        String username = tokenService.getUser(token).getUsername();
+
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User not found " + username))
+                .getTickets()
+                .stream()
+                .map(this::createMyTicketDTO)
+                .collect(Collectors.toList());
     }
 
+    //TODO: delete
     private List<MyTicketDTO> dummyData() {
         MyTicketDTO dto1 = new MyTicketDTO(1L, LocalDateTime.now(), "Running", "The Gabba", "TODO");
         return List.of(dto1);
