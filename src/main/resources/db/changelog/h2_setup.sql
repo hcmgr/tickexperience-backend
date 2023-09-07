@@ -4,9 +4,9 @@ CREATE TABLE Sport (
 );
 
 CREATE TABLE Venue (
-                       Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-                       Name VARCHAR(255) NOT NULL,
-                       Location VARCHAR(255) NOT NULL
+    Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    Name VARCHAR(255) NOT NULL,
+    Location VARCHAR(255) NOT NULL
 );
 
 CREATE Table Event (
