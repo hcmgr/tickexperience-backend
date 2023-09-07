@@ -3,6 +3,12 @@ CREATE TABLE Sport (
     Name VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE Venue (
+                       Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+                       Name VARCHAR(255) NOT NULL,
+                       Location VARCHAR(255) NOT NULL
+);
+
 CREATE Table Event (
     Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     SportId INT NOT NULL,
@@ -18,8 +24,6 @@ CREATE TABLE User (
     Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     Username VARCHAR(255) NOT NULL,
     Name VARCHAR(255) NOT NULL,
-    Email VARCHAR(255) NOT NULL,
-    Mobile VARCHAR(255) NOT NULL,
     PasswordHash VARCHAR(255) NOT NULL,
     UserSalt VARCHAR(255) NOT NULL,
     UNIQUE (Username)
@@ -34,9 +38,3 @@ CREATE TABLE Ticket (
     FOREIGN KEY (EventId) REFERENCES Event(Id),
     UNIQUE (SeatNumber)
 );
-
-CREATE TABLE Venue (
-    Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    Name VARCHAR(255) NOT NULL,
-    Location VARCHAR(255) NOT NULL,
-)
