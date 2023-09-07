@@ -1,5 +1,6 @@
 package com.deco.tickexperience.controller;
 
+import com.deco.tickexperience.model.dto.MyTicketDTO;
 import com.deco.tickexperience.model.entity.Ticket;
 import com.deco.tickexperience.model.entity.User;
 import com.deco.tickexperience.service.UserService;
@@ -26,6 +27,11 @@ public class UserController {
     @GetMapping("/tickets")
     public List<Ticket> getTicketsForUser(@RequestHeader("token") String token) {
         return userService.getTicketsForUser(token);
+    }
+
+    @GetMapping("/my-tickets")
+    public List<MyTicketDTO> getMyTickets(@RequestHeader("token") String token) {
+        return userService.getMyTickets(token);
     }
 
 }
