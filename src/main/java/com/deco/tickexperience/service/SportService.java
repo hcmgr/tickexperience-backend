@@ -18,7 +18,7 @@ public class SportService {
         return (List<Sport>) sportRepository.findAll();
     }
 
-    public List<Event> getSportAllEvents(final Long sportId) {
+    public List<Event> getEvents(final Long sportId) {
         Sport sport = sportRepository.findById(sportId).orElseThrow(() ->
                 new RuntimeException("gimbal lock is a not good thing I think"));
         return sport.getEvents();

@@ -21,6 +21,8 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer seatNumber;
+    private Long price;
+    private String QRCode;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="EventId")

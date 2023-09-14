@@ -36,5 +36,5 @@ CREATE TABLE Ticket (
     SeatNumber INT NOT NULL,
     FOREIGN KEY (UserId) REFERENCES User(Id),
     FOREIGN KEY (EventId) REFERENCES Event(Id),
-    UNIQUE (SeatNumber)
+    UNIQUE (EventId, SeatNumber)
 );
