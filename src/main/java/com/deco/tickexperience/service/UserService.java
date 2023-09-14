@@ -3,6 +3,7 @@ package com.deco.tickexperience.service;
 import com.deco.tickexperience.model.dto.MyTicketDTO;
 import com.deco.tickexperience.model.entity.Ticket;
 import com.deco.tickexperience.model.entity.User;
+import com.deco.tickexperience.repository.TicketRepository;
 import com.deco.tickexperience.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final TokenService tokenService;
+    private final TicketRepository ticketRepository;
 
     public List<Ticket> getTicketsForUser(final String token) {
        String username = tokenService.getUser(token).getUsername();
@@ -61,4 +63,11 @@ public class UserService {
         return dto;
     }
 
+    public void buyTicket(final String token, final Long ticketId) {
+        User user = tokenService.getUser(token);
+        Ticket ticket = ticketRepository.findById(ticketId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ticket not found " + ticketId));
+
+        user.addTicket(ticket);
+    }
 }
