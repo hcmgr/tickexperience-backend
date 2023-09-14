@@ -20,11 +20,10 @@ public class SportController {
     @GetMapping("/all")
     public List<Sport> getAllSports() {
         return sportService.getAllSports();
-
     }
 
     @GetMapping("/events/{sportId}")
-    public List<Event> getAllSportEvents(@PathVariable Long sportId) {
-        return sportService.getSportAllEvents(sportId);
+    public List<Event> getEvents(@PathVariable Long sportId) {
+        return sportService.getEvents(sportId);
     }
 }

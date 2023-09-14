@@ -16,6 +16,8 @@ public class Event {
     private String name;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private String gender;
+    private String imageURL;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="SportId")

@@ -9,8 +9,16 @@
         <sqlFile path = "h2_setup.sql" splitStatements="true" stripComments="true" endDelimiter=";" relativeToChangelogFile="true" />
     </changeSet>
 
-    <changeSet id="dummy_data" author="dom">
-        <sqlFile path = "dummy_data.sql" splitStatements="true" stripComments="true" endDelimiter=";" relativeToChangelogFile="true" />
+    <changeSet id="mock_sports_venues" author="dom">
+        <sqlFile path = "mock_sports_venues.sql" splitStatements="true" stripComments="true" endDelimiter=";" relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="mock_events" author="dom">
+        <sqlFile path = "mock_events.sql" splitStatements="true" stripComments="true" endDelimiter=";" relativeToChangelogFile="true" />
+    </changeSet>
+
+    <changeSet id="mock_tickets" author="dom">
+        <sqlFile path = "mock_tickets.sql" splitStatements="true" stripComments="true" endDelimiter=";" relativeToChangelogFile="true" />
     </changeSet>
 
 
