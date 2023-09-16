@@ -69,5 +69,6 @@ public class UserService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ticket not found " + ticketId));
 
         user.addTicket(ticket);
+        userRepository.save(user);
     }
 }

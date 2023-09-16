@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -22,6 +23,9 @@ public class EventService {
     public List<Ticket> getTickets(final Long eventId) {
         return eventRepository.findById(eventId)
                 .orElseThrow(() -> new RuntimeException("Event not found for id: " + eventId))
-                .getTickets();
+                .getTickets()
+                .stream()
+                .filter(ticket -> ticket.getUser() == null)
+                .collect(Collectors.toList());
     }
 }

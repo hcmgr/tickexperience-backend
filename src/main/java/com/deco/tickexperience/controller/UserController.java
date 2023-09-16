@@ -6,6 +6,7 @@ import com.deco.tickexperience.model.entity.User;
 import com.deco.tickexperience.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +36,8 @@ public class UserController {
         return userService.getMyTickets(token);
     }
 
-    @PostMapping("/buy-ticket")
-    public void buyTicket(@RequestHeader("token") String token, Long ticketId) {
+    @PostMapping("/buy-ticket/{ticketId}")
+    public void buyTicket(@RequestHeader("token") String token, @PathVariable Long ticketId) {
         userService.buyTicket(token, ticketId);
     }
 
