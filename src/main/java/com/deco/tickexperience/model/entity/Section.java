@@ -1,5 +1,6 @@
 package com.deco.tickexperience.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,32 +8,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
-/**
- * Ticket entity
- * (seat, location) are unique pairs
- * may benefit from separate model in future
- */
+import java.util.List;
+
 @Entity
 @Data
-public class Ticket {
+public class Section {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer seatNumber;
-    private Long price;
-    private String QRCode;
+    private String imageURL;
+    private Integer location;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="EventId")
-    private Event event;
+    @JoinColumn(name="VenueId")
+    private Venue venue;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="UserId")
-    private User user;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="SectionId")
-    private Section section;
+    @OneToMany(mappedBy = "section", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Ticket> tickets;
 }

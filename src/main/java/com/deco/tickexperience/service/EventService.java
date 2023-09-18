@@ -20,7 +20,7 @@ public class EventService {
                 .orElseThrow(() -> new RuntimeException("Event not found for id: " + id));
     }
 
-    public List<Ticket> getTickets(final Long eventId) {
+    public List<Ticket> getNotBoughtTickets(final Long eventId) {
         return eventRepository.findById(eventId)
                 .orElseThrow(() -> new RuntimeException("Event not found for id: " + eventId))
                 .getTickets()

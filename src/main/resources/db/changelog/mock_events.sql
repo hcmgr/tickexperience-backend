@@ -1,6 +1,3 @@
-ALTER TABLE Event ADD ImageURL VARCHAR(255) NOT NULL;
-ALTER TABLE Event ADD Gender VARCHAR(255);
-
 -- Swimming
 INSERT INTO Event (SportId, VenueId, Name, StartTime, EndTime, ImageURL, Gender) VALUES (1, 1, 'Freestyle Heats', '2032-07-23T09:00:00', '2032-07-23T11:00:00', 'https://images.pexels.com/photos/1263348/pexels-photo-1263348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'M');
 INSERT INTO Event (SportId, VenueId, Name, StartTime, EndTime, ImageURL, Gender) VALUES (1, 1, 'Freestyle Finals', '2032-07-30T15:00:00', '2032-07-30T17:00:00', 'https://images.pexels.com/photos/1263349/pexels-photo-1263349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 'M');

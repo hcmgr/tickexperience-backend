@@ -40,5 +40,4 @@ public class UserController {
     public void buyTicket(@RequestHeader("token") String token, @PathVariable Long ticketId) {
         userService.buyTicket(token, ticketId);
     }
-
 }

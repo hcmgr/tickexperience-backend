@@ -20,4 +20,10 @@ public class Venue {
     @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Event> events;
+
+    @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Section> sections;
+
+
 }
