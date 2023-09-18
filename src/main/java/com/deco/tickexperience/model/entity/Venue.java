@@ -15,6 +15,7 @@ public class Venue {
     private String name;
     private String location;
     private Long capacity;
+    private String imageUrl;
 
     @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL)
     @JsonIgnore
