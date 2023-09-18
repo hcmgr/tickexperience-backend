@@ -34,7 +34,8 @@ CREATE TABLE User (
 
 Create table Section (
      Id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-     imageURL VARCHAR(255) NOT NULL,
+     Location INT NOT NULL,
+     ImageURL VARCHAR(255) NOT NULL,
      VenueId INT NOT NULL,
      FOREIGN KEY (VenueId) REFERENCES Venue(Id)
 );

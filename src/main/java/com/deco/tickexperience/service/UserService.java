@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,19 +46,13 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
-    //TODO: delete
-    private List<MyTicketDTO> dummyData() {
-        MyTicketDTO dto1 = new MyTicketDTO(1L, LocalDateTime.now(), "Running", "The Gabba", "TODO");
-        return List.of(dto1);
-    }
-
     private MyTicketDTO createMyTicketDTO(final Ticket ticket) {
         MyTicketDTO dto = new MyTicketDTO();
         dto.setTicketId(ticket.getId());
         dto.setEventName(ticket.getEvent().getName());
         dto.setEventDateTime(ticket.getEvent().getStartTime());
         dto.setVenueName(ticket.getEvent().getVenue().getName());
-        dto.setImageUrl("TODO");
+        dto.setIcon(ticket.getEvent().getSport().getIcon());
         return dto;
     }
 

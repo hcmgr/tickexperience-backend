@@ -14,6 +14,6 @@ public class MyTicketDTO {
     private LocalDateTime eventDateTime;
     private String eventName;
     private String venueName;
-    private String imageUrl;
+    private String icon;
 }
 

@@ -20,6 +20,7 @@ public class Section {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String imageURL;
+    private Integer location;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="VenueId")
