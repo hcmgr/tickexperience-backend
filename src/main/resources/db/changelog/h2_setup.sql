@@ -18,7 +18,6 @@ CREATE Table Event (
     Name VARCHAR(255) NOT NULL,
     StartTime TIMESTAMP NOT NULL,
     EndTime TIMESTAMP NOT NULL,
-    ImageURI VARCHAR(255),
     FOREIGN KEY (SportId) REFERENCES Sport(Id),
     FOREIGN KEY (VenueId) REFERENCES Venue(Id)
 );
