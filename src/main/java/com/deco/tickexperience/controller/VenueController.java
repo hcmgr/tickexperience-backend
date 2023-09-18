@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("{apiPrefix}/venue-details")
+@RequestMapping("${apiPrefix}/venue-details")
 public class VenueController {
 
     private final VenueService venueService;
