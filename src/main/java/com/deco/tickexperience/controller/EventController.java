@@ -1,6 +1,7 @@
 package com.deco.tickexperience.controller;
 
 import com.deco.tickexperience.model.entity.Event;
+import com.deco.tickexperience.model.entity.Section;
 import com.deco.tickexperience.model.entity.Ticket;
 import com.deco.tickexperience.service.EventService;
 import lombok.RequiredArgsConstructor;
@@ -26,5 +27,10 @@ public class EventController {
     @GetMapping("/tickets/{eventId}")
     public List<Ticket> getTickets(@PathVariable Long eventId) {
         return eventService.getNotBoughtTickets(eventId);
+    }
+
+    @GetMapping("/{eventId}/sections")
+    public List<Section> getSections(@PathVariable Long eventId) {
+        return eventService.getSections(eventId);
     }
 }
