@@ -15,5 +15,7 @@ public class MyTicketDTO {
     private String eventName;
     private String venueName;
     private String icon;
+    private Integer seatNumber;
+    private String qrCode;
 }
 
