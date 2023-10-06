@@ -54,6 +54,7 @@ public class AuthService {
         user.setUserSalt(salt);
         user.setPasswordHash(encodePassword(registerDTO.getPassword(), salt));
         user.setName(registerDTO.getName());
+        user.setEmail(registerDTO.getEmail());
 
         userRepository.save(user);
     }
