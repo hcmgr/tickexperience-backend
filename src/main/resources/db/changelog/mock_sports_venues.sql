@@ -21,20 +21,23 @@ VALUES ('The Gabba',
         'https://resources.afl.com.au/photo-resources/2019/11/13/1697edf7-a8c4-4bc7-b1e3-202b30d1ff04/Q2BrRi19JSP517696197.JPG?width=1000&height=1000'
        );
 
--- SET @topURL = 'https://l13.alamy.com/360/PN8C9G/football-stadium-in-stockholm-sweden-PN8C9G.jpg';
-SET @sideURL = 'https://l13.alamy.com/360/2CYYCJ5/covid-19-the-brighton-and-arsenal-players-take-the-knee-black-lives-matter-in-an-empty-amex-stadium-picture-mark-pain-alamy-2CYYCJ5.jpg';
-SET @topURL = 'https://l13.alamy.com/360/PMEMXK/allianz-arena-munich-PMEMXK.jpg';
+SET @fieldTopURL = 'https://l13.alamy.com/360/PMEMXK/allianz-arena-munich-PMEMXK.jpg';
+SET @fieldLeftURL = 'https://c8.alamy.com/comp/MFR2HJ/november-2017-madrid-440-x-180-degree-panorama-of-the-santiago-bernabeu-stadium-of-the-spanish-football-club-real-madrid-MFR2HJ.jpg';
+SET @fieldBottomURL = 'https://l13.alamy.com/360/PN0GT9/interior-of-santiago-bernabeu-stadium-madrid-PN0GT9.jpg';
+SET @fieldRightURL = 'https://l13.alamy.com/360/PN8C9G/football-stadium-in-stockholm-sweden-PN8C9G.jpg';
 
 -- 1: top, 2: right, 3: bottom, 4: left
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@topURL, 1, 1);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@sideURL, 1, 2);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@topURL, 1, 3);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@sideURL, 1, 4);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@topURL, 2, 1);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@sideURL, 2, 2);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@topURL, 2, 3);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@sideURL, 2, 4);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@topURL, 3, 1);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@sideURL, 3, 2);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@topURL, 3, 3);
-INSERT INTO Section(ImageURL, VenueId, Location) Values(@sideURL, 3, 4);
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldTopURL, 1, 1);
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldRightURL, 1, 2);
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldBottomURL, 1, 3);
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldLeftURL, 1, 4);
+
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldTopURL, 2, 1);
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldRightURL, 2, 2);
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldBottomURL, 2, 3);
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldLeftURL, 2, 4);
+
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldTopURL, 3, 1);
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldRightURL, 3, 2);
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldBottomURL, 3, 3);
+INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldLeftURL, 3, 4);
