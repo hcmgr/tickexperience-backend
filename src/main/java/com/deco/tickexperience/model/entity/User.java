@@ -24,6 +24,7 @@ public class User {
     // mandatory details
     private String username;
     private String name;
+    private String email;
 
     @JsonIgnore
     private String passwordHash;

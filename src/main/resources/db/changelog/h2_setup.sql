@@ -37,6 +37,7 @@ CREATE TABLE User (
     Name VARCHAR(255) NOT NULL,
     PasswordHash VARCHAR(255) NOT NULL,
     UserSalt VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
     UNIQUE (Username)
 );
 
