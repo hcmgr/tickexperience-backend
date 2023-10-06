@@ -13,6 +13,7 @@ public class MyTicketDTO {
     private Long ticketId;
     private LocalDateTime eventDateTime;
     private String eventName;
+    private Long venueId;
     private String venueName;
     private String icon;
     private Integer seatNumber;
