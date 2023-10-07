@@ -21,3 +21,8 @@ apiAuthedPrefix: /api/authed
 token:
     timeout: 900  # seconds, 15 minutes
     length: 16 # bytes
+
+mailgun:
+    api_key: 134dd72ae8a38253b25653ae5d125a3a-77316142-f5c83a7f
+    api_url: https://api.mailgun.net/v3/giggyguychess.com/messages
+    domain: <mailgun@giggyguychess.com> # hehehehehehehehehe

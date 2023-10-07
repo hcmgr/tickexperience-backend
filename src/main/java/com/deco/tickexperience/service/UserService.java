@@ -21,6 +21,8 @@ public class UserService {
     private final TokenService tokenService;
     private final TicketRepository ticketRepository;
 
+    private final NotificationService notificationService;
+
     public List<Ticket> getTicketsForUser(final String token) {
        String username = tokenService.getUser(token).getUsername();
 
@@ -63,5 +65,12 @@ public class UserService {
 
         user.addTicket(ticket);
         userRepository.save(user);
+
+        boolean test = false;
+        if (test) {
+            notificationService.sendEmail("deco3801test@gmail.com", "test", "test");
+        } else {
+            notificationService.sendConfirmationEmail(user, ticket);
+        }
     }
 }
