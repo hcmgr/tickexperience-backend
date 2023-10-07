@@ -25,6 +25,6 @@ token:
 mailgun:
     api_key: 134dd72ae8a38253b25653ae5d125a3a-77316142-f5c83a7f
     api_url: https://api.mailgun.net/v3/giggyguychess.com/messages
-    sending: false # NOTE: ONLY SET FOR TESTING, DON'T WASTE OUR 500 FREE EMAILS
+    sending: true # NOTE: ONLY SET FOR TESTING, DON'T WASTE OUR 500 FREE EMAILS
     domain: <mailgun@giggyguychess.com> # hehehehehehehehehe
 
