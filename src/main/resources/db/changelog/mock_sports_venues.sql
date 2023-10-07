@@ -19,17 +19,17 @@ VALUES ('The Gabba',
         48000);
 
 INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (1, 'https://oagames2022.org/wp-content/uploads/2022/07/brisbane_aquatic_centre_pool.jpeg.webp');
-INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (1, 'https://www.austadiums.com/stadiums/photos/suncorp-stadium-2.jpg');
-INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (1, 'https://resources.afl.com.au/photo-resources/2019/11/13/1697edf7-a8c4-4bc7-b1e3-202b30d1ff04/Q2BrRi19JSP517696197.JPG?width=1064&height=600');
+INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (1, 'https://media-cldnry.s-nbcnews.com/image/upload/newscms/2021_24/1734015/olympic-swimmers-kb-inline-210615-5.jpg');
+INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (1, 'https://www.sleemansports.com.au/CMSPages/GetFile.aspx?guid=24bfe501-7191-4e4b-a5bb-2e5334f8e2a3');
 
-
-INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (2, 'https://oagames2022.org/wp-content/uploads/2022/07/brisbane_aquatic_centre_pool.jpeg.webp');
 INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (2, 'https://www.austadiums.com/stadiums/photos/suncorp-stadium-2.jpg');
-INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (2, 'https://resources.afl.com.au/photo-resources/2019/11/13/1697edf7-a8c4-4bc7-b1e3-202b30d1ff04/Q2BrRi19JSP517696197.JPG?width=1064&height=600');
+INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (2, 'https://populous.com/wp-content/uploads/2018/01/Suncorp-Getty-1.jpg');
+INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (2, 'https://www.multiplex.global/media/3m5jvhxw/banner_suncorp-stadium_img_6974brisbane-projects-71.jpg?anchor=center&mode=crop&width=1200&height=630&rnd=132581644478930000');
+INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (2, 'https://populous.com/wp-content/uploads/2023/05/Populous_SuncorpStadium_Aerial_CrowdAFCAsianCup2015_Image-Credit-Ethan-Rohloff-scaled.jpg');
 
-INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (3, 'https://oagames2022.org/wp-content/uploads/2022/07/brisbane_aquatic_centre_pool.jpeg.webp');
-INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (3, 'https://www.austadiums.com/stadiums/photos/suncorp-stadium-2.jpg');
 INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (3, 'https://resources.afl.com.au/photo-resources/2019/11/13/1697edf7-a8c4-4bc7-b1e3-202b30d1ff04/Q2BrRi19JSP517696197.JPG?width=1064&height=600');
+INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (3, 'https://images.squarespace-cdn.com/content/v1/57451850c2ea516211202d79/1597711765593-MAJHRX9KDULFO8EAM948/Gabba-AFL-2019.jpg');
+INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (3, 'https://www.austadiums.com/stadiums/photos/the-gabba-aerial1.jpg');
 
 SET @fieldTopURL = 'https://l13.alamy.com/360/PMEMXK/allianz-arena-munich-PMEMXK.jpg';
 SET @fieldLeftURL = 'https://c8.alamy.com/comp/MFR2HJ/november-2017-madrid-440-x-180-degree-panorama-of-the-santiago-bernabeu-stadium-of-the-spanish-football-club-real-madrid-MFR2HJ.jpg';
