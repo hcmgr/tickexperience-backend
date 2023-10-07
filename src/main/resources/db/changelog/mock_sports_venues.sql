@@ -20,16 +20,16 @@ VALUES ('The Gabba',
 
 INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (1, 'https://oagames2022.org/wp-content/uploads/2022/07/brisbane_aquatic_centre_pool.jpeg.webp');
 INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (1, 'https://www.austadiums.com/stadiums/photos/suncorp-stadium-2.jpg');
-INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (1, 'https://resources.afl.com.au/photo-resources/2019/11/13/1697edf7-a8c4-4bc7-b1e3-202b30d1ff04/Q2BrRi19JSP517696197.JPG?width=1000&height=1000');
+INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (1, 'https://resources.afl.com.au/photo-resources/2019/11/13/1697edf7-a8c4-4bc7-b1e3-202b30d1ff04/Q2BrRi19JSP517696197.JPG?width=1064&height=600');
 
 
 INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (2, 'https://oagames2022.org/wp-content/uploads/2022/07/brisbane_aquatic_centre_pool.jpeg.webp');
 INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (2, 'https://www.austadiums.com/stadiums/photos/suncorp-stadium-2.jpg');
-INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (2, 'https://resources.afl.com.au/photo-resources/2019/11/13/1697edf7-a8c4-4bc7-b1e3-202b30d1ff04/Q2BrRi19JSP517696197.JPG?width=1000&height=1000');
+INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (2, 'https://resources.afl.com.au/photo-resources/2019/11/13/1697edf7-a8c4-4bc7-b1e3-202b30d1ff04/Q2BrRi19JSP517696197.JPG?width=1064&height=600');
 
 INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (3, 'https://oagames2022.org/wp-content/uploads/2022/07/brisbane_aquatic_centre_pool.jpeg.webp');
 INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (3, 'https://www.austadiums.com/stadiums/photos/suncorp-stadium-2.jpg');
-INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (3, 'https://resources.afl.com.au/photo-resources/2019/11/13/1697edf7-a8c4-4bc7-b1e3-202b30d1ff04/Q2BrRi19JSP517696197.JPG?width=1000&height=1000');
+INSERT INTO VenueImage (VenueId, ImageUrl) VALUES (3, 'https://resources.afl.com.au/photo-resources/2019/11/13/1697edf7-a8c4-4bc7-b1e3-202b30d1ff04/Q2BrRi19JSP517696197.JPG?width=1064&height=600');
 
 SET @fieldTopURL = 'https://l13.alamy.com/360/PMEMXK/allianz-arena-munich-PMEMXK.jpg';
 SET @fieldLeftURL = 'https://c8.alamy.com/comp/MFR2HJ/november-2017-madrid-440-x-180-degree-panorama-of-the-santiago-bernabeu-stadium-of-the-spanish-football-club-real-madrid-MFR2HJ.jpg';
