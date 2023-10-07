@@ -66,11 +66,6 @@ public class UserService {
         user.addTicket(ticket);
         userRepository.save(user);
 
-        boolean test = false;
-        if (test) {
-            notificationService.sendEmail("deco3801test@gmail.com", "test", "test");
-        } else {
-            notificationService.sendConfirmationEmail(user, ticket);
-        }
+        notificationService.sendConfirmationEmail(user, ticket);
     }
 }

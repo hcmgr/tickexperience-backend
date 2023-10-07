@@ -28,20 +28,29 @@ public class NotificationService {
     @Value("${mailgun.domain}")
     private String MAILGUN_DOMAIN;
 
+    @Value("${mailgun.sending}")
+    private Boolean MAILGUN_SENDING;
+
     private String formatEmailMessage(User user, Ticket ticket) {
-        return "Hi " + user.getName() + ",\n\n" +
-                "Congratulations on purchasing a ticket to " + ticket.getEvent().getName() + ".\n\n" +
-                "Date: " + ticket.getEvent().getStartTime() + "\n" +
-                "Venue: " + ticket.getEvent().getVenue() + "\n\n" +
-                "Enjoy!\n\n" +
-                "Gold Pass Olympic Team";
+        StringBuilder message = new StringBuilder();
+        message.append("Hi ").append(user.getName()).append(",\n\n");
+        message.append("Congratulations on purchasing a ticket to ").append(ticket.getEvent().getName()).append(".\n\n");
+        message.append("Date: ").append(ticket.getEvent().getStartTime().toString()).append("\n");
+        message.append("Venue: ").append(ticket.getEvent().getVenue().getName()).append("\n\n");
+        message.append("Enjoy!\n\n");
+        message.append("Gold Pass Olympic Team");
+
+        return message.toString();
     }
 
     public void sendConfirmationEmail(User user, Ticket ticket) {
-        sendEmail(user.getEmail(), "Ticket confirmation", formatEmailMessage(user, ticket));
+        if (MAILGUN_SENDING) { // NOTE: so we don't waste our 500 free emails (ie: set to true in prod)
+            String msg = formatEmailMessage(user, ticket);
+            sendEmail(user.getEmail(), "Ticket confirmation", msg);
+        }
     }
 
-    public void sendEmail(String to, String subject, String text) {
+    private void sendEmail(String to, String subject, String text) {
         HttpHeaders headers = new HttpHeaders();
         headers.setBasicAuth("api", MAILGUN_API_KEY);
 
