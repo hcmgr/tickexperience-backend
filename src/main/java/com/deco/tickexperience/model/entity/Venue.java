@@ -15,7 +15,6 @@ public class Venue {
     private String name;
     private String location;
     private Long capacity;
-    private String imageUrl;
 
     @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -24,6 +23,10 @@ public class Venue {
     @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Section> sections;
+
+    @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<VenueImage> imageUrls;
 
 
 }
