@@ -16,7 +16,6 @@ import org.springframework.util.LinkedMultiValueMap;
 @Service
 @RequiredArgsConstructor
 public class NotificationService {
-
     @Autowired
     private RestTemplate restTemplate;
 
@@ -29,8 +28,17 @@ public class NotificationService {
     @Value("${mailgun.domain}")
     private String MAILGUN_DOMAIN;
 
+    private String formatEmailMessage(User user, Ticket ticket) {
+        return "Hi " + user.getName() + ",\n\n" +
+                "Congratulations on purchasing a ticket to " + ticket.getEvent().getName() + ".\n\n" +
+                "Date: " + ticket.getEvent().getStartTime() + "\n" +
+                "Venue: " + ticket.getEvent().getVenue() + "\n\n" +
+                "Enjoy!\n\n" +
+                "Gold Pass Olympic Team";
+    }
+
     public void sendConfirmationEmail(User user, Ticket ticket) {
-        sendEmail(user.getEmail(), "Ticket confirmation", "Congratulations on purchasing a ticket to minky poo");
+        sendEmail(user.getEmail(), "Ticket confirmation", formatEmailMessage(user, ticket));
     }
 
     public void sendEmail(String to, String subject, String text) {
