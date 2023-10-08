@@ -15,37 +15,35 @@ import org.springframework.util.LinkedMultiValueMap;
 
 @Service
 @RequiredArgsConstructor
-public class NotificationService {
+public class EmailService {
+
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${mailgun.api_key}")
+    @Value("${MAILGUN_API_KEY}")
     private String MAILGUN_API_KEY;
 
-    @Value("${mailgun.api_url}")
+    @Value("${MAILGUN_API_URL}")
     private String MAILGUN_API_URL;
 
-    @Value("${mailgun.domain}")
+    @Value("${MAILGUN_DOMAIN}")
     private String MAILGUN_DOMAIN;
 
-    @Value("${mailgun.sending}")
-    private Boolean MAILGUN_SENDING;
+    @Value("${mailgun.sendingEmails}")
+    private Boolean MAILGUN_SENDING_EMAILS;
+
+    @Value("${mailgun.emailMsg}")
+    private String emailMsg;
 
     private String formatEmailMessage(User user, Ticket ticket) {
-        StringBuilder message = new StringBuilder();
-        message.append("Hi ").append(user.getName()).append(",\n\n");
-        message.append("Congratulations on purchasing a ticket to ").append(ticket.getEvent().getName()).append(".\n\n");
-        message.append("Date: ").append(ticket.getEvent().getStartTime().toString()).append("\n");
-        message.append("Venue: ").append(ticket.getEvent().getVenue().getName()).append("\n\n");
-        message.append("Enjoy!\n\n");
-        message.append("Gold Pass Olympic Team");
-
-        return message.toString();
+        return String.format(emailMsg, user.getName(), ticket.getEvent().getName(),
+                ticket.getEvent().getStartTime(), ticket.getEvent().getVenue().getName());
     }
 
     public void sendConfirmationEmail(User user, Ticket ticket) {
-        if (MAILGUN_SENDING) { // NOTE: so we don't waste our 500 free emails (ie: set to true in prod)
+        if (MAILGUN_SENDING_EMAILS) { // NOTE: so we don't waste our 500 free emails (ie: set to true in prod)
             String msg = formatEmailMessage(user, ticket);
+            System.err.println(msg);
             sendEmail(user.getEmail(), "Ticket confirmation", msg);
         }
     }

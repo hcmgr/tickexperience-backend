@@ -21,7 +21,7 @@ public class UserService {
     private final TokenService tokenService;
     private final TicketRepository ticketRepository;
 
-    private final NotificationService notificationService;
+    private final EmailService emailService;
 
     public List<Ticket> getTicketsForUser(final String token) {
        String username = tokenService.getUser(token).getUsername();
@@ -66,6 +66,6 @@ public class UserService {
         user.addTicket(ticket);
         userRepository.save(user);
 
-        notificationService.sendConfirmationEmail(user, ticket);
+        emailService.sendConfirmationEmail(user, ticket);
     }
 }
