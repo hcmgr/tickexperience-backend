@@ -36,3 +36,4 @@ build/
 ### MISC ###
 TODO*
 notes*
+*.env

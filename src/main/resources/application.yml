@@ -21,3 +21,7 @@ apiAuthedPrefix: /api/authed
 token:
     timeout: 900  # seconds, 15 minutes
     length: 16 # bytes
+
+mailgun:
+    emailMsg: "Hi %s,\n\nCongratulations on purchasing a ticket to %s.\n\nDate: %s\nVenue: %s\n\nEnjoy!\n\nGold Pass Olympic Team"
+    sendingEmails: false
