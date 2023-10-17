@@ -2,11 +2,14 @@ package com.deco.tickexperience.service;
 
 import com.deco.tickexperience.model.entity.Event;
 import com.deco.tickexperience.model.entity.Sport;
+import com.deco.tickexperience.model.entity.VenueImage;
+import com.deco.tickexperience.model.entity.Video;
 import com.deco.tickexperience.repository.SportRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -22,5 +25,14 @@ public class SportService {
         Sport sport = sportRepository.findById(sportId).orElseThrow(() ->
                 new RuntimeException("gimbal lock is a not good thing I think"));
         return sport.getEvents();
+    }
+
+    public List<String> getVideoUrls(final Long id) {
+        return sportRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Venue not found for id: " + id))
+                .getVideoUrls()
+                .stream()
+                .map(Video::getVideoUrl)
+                .collect(Collectors.toList());
     }
 }

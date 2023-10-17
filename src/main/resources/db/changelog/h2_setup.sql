@@ -62,3 +62,10 @@ CREATE TABLE Ticket (
     FOREIGN KEY (SectionId) REFERENCES Section(Id),
     UNIQUE (EventId, SeatNumber, SectionId)
 );
+
+CREATE TABLE Video (
+    ID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    VideoUrl VARCHAR(255) NOT NULL,
+    SportId INT,
+    FOREIGN KEY (SportId) REFERENCES Sport(Id)
+)

@@ -1,6 +1,7 @@
 package com.deco.tickexperience.controller;
 import com.deco.tickexperience.model.entity.Event;
 import com.deco.tickexperience.model.entity.Sport;
+import com.deco.tickexperience.model.entity.Video;
 import com.deco.tickexperience.service.SportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,4 +27,7 @@ public class SportController {
     public List<Event> getEvents(@PathVariable Long sportId) {
         return sportService.getEvents(sportId);
     }
+
+    @GetMapping("/video/{sportId}")
+    public List<String> getVideos(@PathVariable Long sportId) { return sportService.getVideoUrls(sportId); }
 }

@@ -1,11 +1,7 @@
 package com.deco.tickexperience.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -22,6 +18,10 @@ public class Sport {
     @OneToMany(mappedBy = "sport")
     @JsonIgnore
     private List<Event> events;
+
+    @OneToMany(mappedBy = "sport", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Video> videoUrls;
 
     public void addEvent(Event event) {
         event.setSport(this);
