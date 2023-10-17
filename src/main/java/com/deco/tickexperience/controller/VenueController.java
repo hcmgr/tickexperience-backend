@@ -1,7 +1,6 @@
 package com.deco.tickexperience.controller;
 
 import com.deco.tickexperience.model.entity.Venue;
-import com.deco.tickexperience.model.entity.VenueImage;
 import com.deco.tickexperience.service.VenueService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +24,8 @@ public class VenueController {
     }
 
     @GetMapping("/images/{venueId}")
-    public List<String> getVenueImages(@PathVariable Long venueId) { return venueService.getVenueImages(venueId); }
+    public List<String> getVenueImages(@PathVariable Long venueId) {
+        return venueService.getVenueImages(venueId);
+    }
 
 }

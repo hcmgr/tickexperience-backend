@@ -1,6 +1,15 @@
 INSERT INTO Sport (Name, Icon) VALUES ('Swimming', 'swimming');
 INSERT INTO Sport (Name, Icon) VALUES ('Athletics', 'athletics');
 INSERT INTO Sport (Name, Icon) VALUES ('Football', 'football');
+INSERT INTO SPORT (Name, Icon) VALUES ('Basketball', 'basketball');
+INSERT INTO SPORT (Name, Icon) VALUES ('Boxing', 'boxing');
+INSERT INTO SPORT (Name, Icon) VALUES ('Cycling', 'cycling');
+INSERT INTO SPORT (Name, Icon) VALUES ('Diving', 'diving');
+INSERT INTO SPORT (Name, Icon) VALUES ('Fencing', 'fencing');
+INSERT INTO SPORT (Name, Icon) VALUES ('Judo', 'judo');
+INSERT INTO SPORT (Name, Icon) VALUES ('Surfing', 'surfing');
+INSERT INTO SPORT (Name, Icon) VALUES ('Table Tennis', 'table-tennis');
+
 
 INSERT INTO Venue (Name, Location, Capacity)
 VALUES ('Sleeman Sports Complex',
