@@ -26,13 +26,4 @@ public class SportService {
                 new RuntimeException("gimbal lock is a not good thing I think"));
         return sport.getEvents();
     }
-
-    public List<String> getVideoUrls(final Long id) {
-        return sportRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Venue not found for id: " + id))
-                .getVideoUrls()
-                .stream()
-                .map(Video::getVideoUrl)
-                .collect(Collectors.toList());
-    }
 }

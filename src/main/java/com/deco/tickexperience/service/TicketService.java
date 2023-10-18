@@ -25,6 +25,7 @@ public class TicketService {
         dto.setSeatNumber(ticket.getSeatNumber());
         dto.setEventDateTime(ticket.getEvent().getStartTime());
         dto.setQrCode(ticket.getQRCode());
+        dto.setVideoUrls(ticket.getEvent().getSport().getVideoUrlsAsStrings());
 
         return dto;
     }

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Data
@@ -23,6 +24,11 @@ public class Sport {
     @JsonIgnore
     private List<Video> videoUrls;
 
+    public List<String> getVideoUrlsAsStrings() {
+        return this.videoUrls.stream()
+                .map(Video::getVideoUrl)
+                .collect(Collectors.toList());
+    }
     public void addEvent(Event event) {
         event.setSport(this);
         if (this.getEvents() == null) {

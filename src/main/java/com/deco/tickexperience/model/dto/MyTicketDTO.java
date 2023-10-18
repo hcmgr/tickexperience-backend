@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -18,5 +19,6 @@ public class MyTicketDTO {
     private String icon;
     private Integer seatNumber;
     private String qrCode;
+    private List<String> videoUrls;
 }
 

@@ -19,7 +19,7 @@ apiPrefix: /api
 apiAuthedPrefix: /api/authed
 
 token:
-    timeout: 900  # seconds, 15 minutes
+    timeout: 900000 # 900 seconds, 15 minutes
     length: 16 # bytes
 
 mailgun:

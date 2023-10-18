@@ -27,7 +27,4 @@ public class SportController {
     public List<Event> getEvents(@PathVariable Long sportId) {
         return sportService.getEvents(sportId);
     }
-
-    @GetMapping("/video/{sportId}")
-    public List<String> getVideos(@PathVariable Long sportId) { return sportService.getVideoUrls(sportId); }
 }
