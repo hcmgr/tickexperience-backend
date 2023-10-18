@@ -1,6 +1,7 @@
 package com.deco.tickexperience.controller;
 import com.deco.tickexperience.model.entity.Event;
 import com.deco.tickexperience.model.entity.Sport;
+import com.deco.tickexperience.model.entity.Video;
 import com.deco.tickexperience.service.SportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

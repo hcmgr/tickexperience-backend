@@ -2,11 +2,14 @@ package com.deco.tickexperience.service;
 
 import com.deco.tickexperience.model.entity.Event;
 import com.deco.tickexperience.model.entity.Sport;
+import com.deco.tickexperience.model.entity.VenueImage;
+import com.deco.tickexperience.model.entity.Video;
 import com.deco.tickexperience.repository.SportRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
