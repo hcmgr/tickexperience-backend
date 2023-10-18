@@ -52,14 +52,12 @@ INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldRightURL, 3, 2);
 INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldBottomURL, 3, 3);
 INSERT INTO Section(ImageURL, VenueId, Location) Values(@fieldLeftURL, 3, 4);
 
-INSERT INTO Video (SportId, VideoUrl) Values (1, 'https://www.youtube.com/watch?v=X7bj_LUIY7Y&ab_channel=Olympics');
-INSERT INTO Video (SportId, VideoUrl) Values (1, 'https://www.youtube.com/watch?v=RHgb9SCakjI&ab_channel=Olympics');
-INSERT INTO Video (SportId, VideoUrl) Values (1, 'https://www.youtube.com/watch?v=Era0VAIUATw&ab_channel=Olympics');
-
-INSERT INTO Video (SportId, VideoUrl) Values (2, 'https://www.youtube.com/watch?v=KOVhDUkmIvk&ab_channel=Olympics');
-INSERT INTO Video (SportId, VideoUrl) Values (2, 'https://www.youtube.com/watch?v=3nbjhpcZ9_g&ab_channel=realsbstn');
-INSERT INTO Video (SportId, VideoUrl) Values (2, 'https://www.youtube.com/watch?v=oG84zW7xUr8&ab_channel=Olympics');
-
-INSERT INTO Video (SportId, VideoUrl) Values (3, 'https://www.youtube.com/watch?v=KOVhDUkmIvk&ab_channel=Olympics');
-INSERT INTO Video (SportId, VideoUrl) Values (3, 'https://www.youtube.com/watch?v=ddSLi0pQ6vA&ab_channel=Olympics');
-INSERT INTO Video (SportId, VideoUrl) Values (3, 'https://www.youtube.com/watch?v=Dqevl3w0_6s&ab_channel=Olympics');
+INSERT INTO Video (SportId, VideoUrl) Values (1, 'https://www.youtube.com/embed/X7bj_LUIY7Y');
+INSERT INTO Video (SportId, VideoUrl) Values (1, 'https://www.youtube.com/embed/RHgb9SCakjI');
+INSERT INTO Video (SportId, VideoUrl) Values (1, 'https://www.youtube.com/embed/Era0VAIUATw');
+INSERT INTO Video (SportId, VideoUrl) Values (2, 'https://www.youtube.com/embed/KOVhDUkmIvk');
+INSERT INTO Video (SportId, VideoUrl) Values (2, 'https://www.youtube.com/embed/3nbjhpcZ9_gn');
+INSERT INTO Video (SportId, VideoUrl) Values (2, 'https://www.youtube.com/embed/oG84zW7xUr8');
+INSERT INTO Video (SportId, VideoUrl) Values (3, 'https://www.youtube.com/embed/KOVhDUkmIvk');
+INSERT INTO Video (SportId, VideoUrl) Values (3, 'https://www.youtube.com/embed/ddSLi0pQ6vA');
+INSERT INTO Video (SportId, VideoUrl) Values (3, 'https://www.youtube.com/embed/Dqevl3w0_6s');
