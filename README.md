@@ -1,7 +1,7 @@
 # Brisbane 2023 Gold Pass
 
 <p align="center">
-  <img src="https://github.com/Wo-m/tickexperience-frontend/blob/main/src/assets/images/logo.png?raw=true)" alt="logo" width="500"/>
+  <img src="https://github.com/Wo-m/tickexperience-frontend/blob/main/src/assets/images/logo.png?raw=true)" alt="logo" width="250"/>
 </p>
 
 The Brisbane 2032 Gold Pass is a new web application looking to revolutionise the ticketing experience in the leadup to the 2032 Brisbane Olympic Games. For more general information on the project, visit the frontend repository [here](https://github.com/Wo-m/tickexperience-frontend)
