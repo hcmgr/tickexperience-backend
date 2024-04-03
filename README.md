@@ -29,7 +29,7 @@ The following is a brief overview of how to navigate this code-base/how it works
 In order to run this codebase please install the latest version of [Java 17](https://www.oracle.com/au/java/technologies/downloads/#java17), as well as [Apache Maven](https://maven.apache.org/)
 Once installed, in the root folder run `mvn clean install` to compile the project and all of its dependencies and `mvn spring-boot:run` to run the project.
 
-## Software Used
+## Software Utilised
 - [Java 17](https://www.oracle.com/au/java/technologies/downloads/)
 - [Java Spring Framework](https://spring.io/)
 - [H2 Embedded Database](https://www.h2database.com/html/main.html)
